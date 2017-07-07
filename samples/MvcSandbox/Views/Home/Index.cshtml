@@ -10,3 +10,9 @@
         </ul>
     </div>
 </div>
+<cache vary-by-query="cacheParam">
+    @{
+        var cache = (string)ViewContext.HttpContext.Request.Query["cache"];
+    }
+    <p>@(new string(cache[0], 1024))</p>
+</cache>

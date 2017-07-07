@@ -843,7 +843,7 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
             // Arrange
             var expected = new DivideByZeroException();
             var cache = new TestMemoryCache();
-            var cacheTagHelper = new CacheTagHelper(cache, new HtmlTestEncoder())
+            var cacheTagHelper = new CacheTagHelper(new CacheTagHelperMemoryCacheFactory(cache), new HtmlTestEncoder())
             {
                 ViewContext = GetViewContext(),
                 Enabled = true
@@ -876,7 +876,7 @@ namespace Microsoft.AspNetCore.Mvc.TagHelpers
             var expected = "Hello world";
             var cache = new TestMemoryCache();
             var encoder = new HtmlTestEncoder();
-            var cacheTagHelper = new CacheTagHelper(cache, encoder)
+            var cacheTagHelper = new CacheTagHelper(new CacheTagHelperMemoryCacheFactory(cache), encoder)
             {
                 ViewContext = GetViewContext(),
                 Enabled = true
